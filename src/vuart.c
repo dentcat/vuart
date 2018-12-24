@@ -243,7 +243,7 @@ void vuart_write_data(uint8_t data)
 {
     while(!(vuart_state & (1 << VUART_DATA_EMPTY)));
 
-    vuart_state &= ~(1 << VUART_DATA_EMPTY);
+    vuart_state &= ~(1 << VUART_TRANSMIT_COMPLETE | 1 << VUART_DATA_EMPTY);
     tx_data = data;
     tx_bit_count = 0;
 
